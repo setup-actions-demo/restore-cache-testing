@@ -23,7 +23,6 @@ require (
     go.mongodb.org/mongo-driver v1.13.1
     github.com/google/uuid v1.6.0
     github.com/minio/minio-go/v7 v7.0.28
-    github.com/docker/docker/client v1.13.0
     github.com/kubernetes/client-go v0.29.0
     github.com/apache/thrift v0.19.0
     github.com/apache/arrow/go/v13 v13.0.0
