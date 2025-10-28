@@ -7,5 +7,7 @@ require (
     cloud.google.com/go v0.110.0
     github.com/Azure/azure-sdk-for-go/sdk/storage/azblob v1.1.0
     github.com/lib/pq v1.10.9
+    github.com/go-sql-driver/mysql v1.7.0
+    github.com/golang/protobuf v1.5.3
 )
 

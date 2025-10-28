@@ -7,5 +7,7 @@ import (
     _ "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
     _ "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute"
     _ "github.com/lib/pq"
+    _ "github.com/go-sql-driver/mysql"
+    _ "github.com/golang/protobuf/proto"
 )
 func main() {}
