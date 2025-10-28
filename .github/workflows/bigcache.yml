@@ -1,9 +1,9 @@
-name: Big Cache Test
+name: Big Cache Test with actions/cache
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [ "main" ]
+  push:
+    branches: [ "main" ]
 
 jobs:
   big-cache-self-hosted:
