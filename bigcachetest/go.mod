@@ -32,5 +32,3 @@ require (
     github.com/gocql/gocql v1.5.0
     github.com/Shopify/sarama v1.46.3
 )
-
-replace github.com/Shopify/sarama => github.com/Shopify/sarama v1.46.3
