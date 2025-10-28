@@ -13,5 +13,10 @@ import (
     _ "go.uber.org/zap"
     _ "github.com/prometheus/client_golang/prometheus"
     _ "github.com/gin-gonic/gin"
+    _ "github.com/go-redis/redis/v8"
+    _ "github.com/gorilla/websocket"
+    _ "github.com/sirupsen/logrus"
+    _ "github.com/spf13/cobra"
+    _ "github.com/spf13/viper"
 )
 func main() {}
