@@ -56,7 +56,7 @@ jobs:
                     go mod tidy
 
       - name: Setup Go with cache
-        uses: actions/ setup-go@v5
+        uses: actions/setup-go@v5
         with:
           go-version: '1.24'
           cache: true
@@ -119,7 +119,7 @@ jobs:
                     go mod tidy
 
       - name: Setup Go with cache
-        uses: actions/ setup-go@v5
+        uses: actions/setup-go@v5
         with:
           go-version: '1.24'
           cache: true
@@ -183,7 +183,7 @@ jobs:
                     go mod tidy
 
       - name: Setup Go with cache
-        uses: actions/ setup-go@v5
+        uses: actions/setup-go@v5
         with:
           go-version: '1.24'
           cache: true
