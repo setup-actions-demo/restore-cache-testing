@@ -52,6 +52,9 @@ jobs:
                 github.com/apache/thrift v0.19.0
                 github.com/apache/arrow/go/v13 v13.0.0
                 github.com/nats-io/nats.go v1.22.1
+                github.com/segmentio/kafka-go v0.4.30
+                github.com/googleapis/gax-go/v2 v2.7.0
+                github.com/gocql/gocql v1.5.0
             )
           EOF
 
@@ -85,6 +88,9 @@ jobs:
               _ "github.com/apache/thrift/lib/go/thrift"
               _ "github.com/apache/arrow/go/arrow"
               _ "github.com/nats-io/nats.go"
+              _ "github.com/segmentio/kafka-go"
+              _ "github.com/googleapis/gax-go/v2"
+              _ "github.com/gocql/gocql"
           )
           func main() {}
           EOF
@@ -146,6 +152,9 @@ jobs:
               github.com/apache/thrift v0.19.0
               github.com/apache/arrow/go/v13 v13.0.0
               github.com/nats-io/nats.go v1.22.1
+              github.com/segmentio/kafka-go v0.4.30
+              github.com/googleapis/gax-go/v2 v2.7.0
+              github.com/gocql/gocql v1.5.0
           )
 
           EOF
@@ -180,6 +189,9 @@ jobs:
               _ "github.com/apache/thrift/lib/go/thrift"
               _ "github.com/apache/arrow/go/arrow"
               _ "github.com/nats-io/nats.go"
+              _ "github.com/segmentio/kafka-go"
+              _ "github.com/googleapis/gax-go/v2"
+              _ "github.com/gocql/gocql"
           )
           func main() {}
           EOF
@@ -241,6 +253,9 @@ jobs:
               github.com/apache/thrift v0.19.0
               github.com/apache/arrow/go/v13 v13.0.0
               github.com/nats-io/nats.go v1.22.1
+              github.com/segmentio/kafka-go v0.4.30
+              github.com/googleapis/gax-go/v2 v2.7.0
+              github.com/gocql/gocql v1.5.0
           )
 
           "@
@@ -276,6 +291,9 @@ jobs:
                 _ "github.com/apache/thrift/lib/go/thrift"
                 _ "github.com/apache/arrow/go/arrow"
                 _ "github.com/nats-io/nats.go"
+                _ "github.com/segmentio/kafka-go"
+                _ "github.com/googleapis/gax-go/v2"
+                _ "github.com/gocql/gocql"
             )
           func main() {}
           "@

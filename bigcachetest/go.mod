@@ -25,5 +25,8 @@ require (
     github.com/apache/thrift v0.19.0
     github.com/apache/arrow/go/v13 v13.0.0
     github.com/nats-io/nats.go v1.22.1
+    github.com/segmentio/kafka-go v0.4.30
+    github.com/googleapis/gax-go/v2 v2.7.0
+    github.com/gocql/gocql v1.5.0
 )
 

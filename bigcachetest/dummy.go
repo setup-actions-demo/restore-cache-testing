@@ -25,5 +25,8 @@ import (
     _ "github.com/apache/thrift/lib/go/thrift"
     _ "github.com/apache/arrow/go/arrow"
     _ "github.com/nats-io/nats.go"
+    _ "github.com/segmentio/kafka-go"
+    _ "github.com/googleapis/gax-go/v2"
+    _ "github.com/gocql/gocql"
 )
 func main() {}
