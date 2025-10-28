@@ -10,5 +10,8 @@ require (
     github.com/go-sql-driver/mysql v1.7.0
     github.com/golang/protobuf v1.5.3
     github.com/elastic/go-elasticsearch/v8 v8.10.0
+    go.uber.org/zap v1.24.0
+    github.com/prometheus/client_golang v1.16.0
+    github.com/gin-gonic/gin v1.9.0
 )
 

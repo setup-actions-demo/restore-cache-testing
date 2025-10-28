@@ -37,6 +37,9 @@ jobs:
                 github.com/go-sql-driver/mysql v1.7.0
                 github.com/golang/protobuf v1.5.3
                 github.com/elastic/go-elasticsearch/v8 v8.10.0
+                go.uber.org/zap v1.24.0
+                github.com/prometheus/client_golang v1.16.0
+                github.com/gin-gonic/gin v1.9.0
             )
           EOF
 
@@ -55,6 +58,9 @@ jobs:
               _ "github.com/go-sql-driver/mysql"
               _ "github.com/golang/protobuf/proto"
               _ "github.com/elastic/go-elasticsearch/v8"
+              _ "go.uber.org/zap"
+              _ "github.com/prometheus/client_golang/prometheus"
+              _ "github.com/gin-gonic/gin"
           )
           func main() {}
           EOF
@@ -101,6 +107,9 @@ jobs:
               github.com/go-sql-driver/mysql v1.7.0
               github.com/golang/protobuf v1.5.3
               github.com/elastic/go-elasticsearch/v8 v8.10.0
+              go.uber.org/zap v1.24.0
+              github.com/prometheus/client_golang v1.16.0
+              github.com/gin-gonic/gin v1.9.0
           )
 
           EOF
@@ -120,6 +129,9 @@ jobs:
               _ "github.com/go-sql-driver/mysql"
               _ "github.com/golang/protobuf/proto"
               _ "github.com/elastic/go-elasticsearch/v8"
+              _ "go.uber.org/zap"
+              _ "github.com/prometheus/client_golang/prometheus"
+              _ "github.com/gin-gonic/gin"
           )
           func main() {}
           EOF
@@ -166,6 +178,9 @@ jobs:
               github.com/go-sql-driver/mysql v1.7.0
               github.com/golang/protobuf v1.5.3
               github.com/elastic/go-elasticsearch/v8 v8.10.0
+              go.uber.org/zap v1.24.0
+              github.com/prometheus/client_golang v1.16.0
+              github.com/gin-gonic/gin v1.9.0
           )
 
           "@
@@ -186,6 +201,9 @@ jobs:
                 _ "github.com/go-sql-driver/mysql"
                 _ "github.com/golang/protobuf/proto"
                 _ "github.com/elastic/go-elasticsearch/v8"
+                _ "go.uber.org/zap"
+                _ "github.com/prometheus/client_golang/prometheus"
+                _ "github.com/gin-gonic/gin"
             )
           func main() {}
           "@

@@ -10,5 +10,8 @@ import (
     _ "github.com/go-sql-driver/mysql"
     _ "github.com/golang/protobuf/proto"
     _ "github.com/elastic/go-elasticsearch/v8"
+    _ "go.uber.org/zap"
+    _ "github.com/prometheus/client_golang/prometheus"
+    _ "github.com/gin-gonic/gin"
 )
 func main() {}
