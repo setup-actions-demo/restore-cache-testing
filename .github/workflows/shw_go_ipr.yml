@@ -1,4 +1,4 @@
-name: SH windows cache check with go v6
+name: SH windows cache check with IPR 
 
 on:
   workflow_dispatch:
