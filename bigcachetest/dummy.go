@@ -9,5 +9,7 @@ import (
     _ "github.com/lib/pq"
     _ "github.com/go-sql-driver/mysql"
     _ "github.com/golang/protobuf/proto"
+    _ "github.com/elastic/go-elasticsearch/v8"
+    _ "github.com/hashicorp/terraform/helper/schema"
 )
 func main() {}
