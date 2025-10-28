@@ -1,0 +1,151 @@
+name: Big Cache Test
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [ "main" ]
+
+jobs:
+  big-cache-self-hosted:
+    name: Big Cache Test (selfhosted Windows)
+    runs-on: [self-hosted]
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Restore bigcache
+        id: cache-restore
+        uses: actions/cache@v4
+        with:
+          path: bigcache
+          key: bigcache-selfhosted-windows-test
+
+      - name: Generate 1780MB of files (Windows) if cache miss
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        run: |
+          $sizeMB = 1780
+          $folder = "${{ github.workspace }}\bigcache"
+          New-Item -ItemType Directory -Force -Path $folder
+          for ($i=0; $i -lt $sizeMB; $i++) {
+            $file = "$folder\file$i.bin"
+            $bytes = New-Object byte[] (1024*1024)
+            (New-Object Random).NextBytes($bytes)
+            [System.IO.File]::WriteAllBytes($file, $bytes)
+          }
+        shell: powershell
+
+      - name: Save bigcache (only on cache miss)
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        uses: actions/cache@v4
+        with:
+          path: bigcache
+          key: bigcache-selfhosted-windows-test
+
+      - name: Measure size
+        run: |
+          $folder = "${{ github.workspace }}\bigcache"
+          $size = (Get-ChildItem -Path $folder -Recurse | Measure-Object -Property Length -Sum).Sum / 1MB
+          Write-Host "Cache folder size: $size MB"
+        shell: powershell
+
+  big-cache-windows:
+    name: Big Cache Test (Windows)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Restore bigcache
+        id: cache-restore
+        uses: actions/cache@v4
+        with:
+          path: bigcache
+          key: bigcache-windows-test
+
+      - name: Generate 1780MB of files (Windows) if cache miss
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        run: |
+          $sizeMB = 1780
+          $folder = "${{ github.workspace }}\bigcache"
+          New-Item -ItemType Directory -Force -Path $folder
+          for ($i=0; $i -lt $sizeMB; $i++) {
+            $file = "$folder\file$i.bin"
+            $bytes = New-Object byte[] (1024*1024)
+            (New-Object Random).NextBytes($bytes)
+            [System.IO.File]::WriteAllBytes($file, $bytes)
+          }
+        shell: powershell
+
+      - name: Save bigcache (only on cache miss)
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        uses: actions/cache@v4
+        with:
+          path: bigcache
+          key: bigcache-windows-test
+
+      - name: Measure size
+        run: |
+          $folder = "${{ github.workspace }}\bigcache"
+          $size = (Get-ChildItem -Path $folder -Recurse | Measure-Object -Property Length -Sum).Sum / 1MB
+          Write-Host "Cache folder size: $size MB"
+        shell: powershell
+
+  big-cache-ubuntu:
+    name: Big Cache Test (Ubuntu)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Restore bigcache
+        id: cache-restore
+        uses: actions/cache@v4
+        with:
+          path: bigcache
+          key: bigcache-ubuntu-test
+
+      - name: Generate 1780MB of files (Linux) if cache miss
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p bigcache
+          for i in $(seq 1 1780); do
+            dd if=/dev/urandom of=bigcache/file$i.bin bs=1M count=1
+          done
+
+      - name: Save bigcache (only on cache miss)
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        uses: actions/cache@v4
+        with:
+          path: bigcache
+          key: bigcache-ubuntu-test
+
+      - name: Measure size
+        run: du -sh bigcache
+
+  big-cache-macos:
+    name: Big Cache Test (macOS)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Restore bigcache
+        id: cache-restore
+        uses: actions/cache@v4
+        with:
+          path: bigcache
+          key: bigcache-macos-test
+
+      - name: Generate 1780MB of files (macOS) if cache miss
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p bigcache
+          for i in $(seq 1 1780); do
+            dd if=/dev/urandom of=bigcache/file$i.bin bs=1m count=1
+          done
+
+      - name: Save bigcache (only on cache miss)
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        uses: actions/cache@v4
+        with:
+          path: bigcache
+          key: bigcache-macos-test
+
+      - name: Measure size
+        run: du -sh bigcache
