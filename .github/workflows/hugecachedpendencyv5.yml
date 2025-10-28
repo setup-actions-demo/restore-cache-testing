@@ -42,9 +42,9 @@ jobs:
               go.mongodb.org/mongo-driver v1.13.1
               github.com/google/uuid v1.6.0
               github.com/minio/minio-go/v7 v7.0.28
-              github.com/docker/docker/client v23.0.2
+              github.com/docker/docker/client v1.13.0
               github.com/kubernetes/client-go v0.29.0
-              github.com/coreos/etcd/clientv3 v3.5.10
+              github.com/coreos/etcd/clientv3 v1.5.10
               github.com/apache/thrift v0.19.0
               github.com/apache/arrow/go/v13 v13.0.0
               github.com/nats-io/nats.go v1.22.1
@@ -53,7 +53,7 @@ jobs:
               github.com/gocql/gocql v1.5.0
           )
           EOF
-                    go mod tidy
+          go mod tidy
 
       - name: Setup Go with cache
         uses: actions/setup-go@v5
@@ -105,9 +105,9 @@ jobs:
               go.mongodb.org/mongo-driver v1.13.1
               github.com/google/uuid v1.6.0
               github.com/minio/minio-go/v7 v7.0.28
-              github.com/docker/docker/client v23.0.2
+              github.com/docker/docker/client v1.13.0
               github.com/kubernetes/client-go v0.29.0
-              github.com/coreos/etcd/clientv3 v3.5.10
+              github.com/coreos/etcd/clientv3 v1.5.10
               github.com/apache/thrift v0.19.0
               github.com/apache/arrow/go/v13 v13.0.0
               github.com/nats-io/nats.go v1.22.1
@@ -116,7 +116,7 @@ jobs:
               github.com/gocql/gocql v1.5.0
           )
           EOF
-                    go mod tidy
+          go mod tidy
 
       - name: Setup Go with cache
         uses: actions/setup-go@v5
@@ -168,9 +168,9 @@ jobs:
               go.mongodb.org/mongo-driver v1.13.1
               github.com/google/uuid v1.6.0
               github.com/minio/minio-go/v7 v7.0.28
-              github.com/docker/docker/client v23.0.2
+              github.com/docker/docker/client v1.13.0
               github.com/kubernetes/client-go v0.29.0
-              github.com/coreos/etcd/clientv3 v3.5.10
+              github.com/coreos/etcd/clientv3 v1.5.10
               github.com/apache/thrift v0.19.0
               github.com/apache/arrow/go/v13 v13.0.0
               github.com/nats-io/nats.go v1.22.1
@@ -179,8 +179,8 @@ jobs:
               github.com/gocql/gocql v1.5.0
           )
           "@
-                    Set-Content -Path go.mod -Value $goMod
-                    go mod tidy
+          Set-Content -Path go.mod -Value $goMod
+          go mod tidy
 
       - name: Setup Go with cache
         uses: actions/setup-go@v5
