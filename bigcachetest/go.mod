@@ -9,7 +9,7 @@ require (
     github.com/lib/pq v1.10.9
     github.com/go-sql-driver/mysql v1.7.0
     github.com/golang/protobuf v1.5.3
-    google.golang.org/grpc v1.60.0
+    google.golang.org/grpc v1.20.0
     github.com/elastic/go-elasticsearch/v8 v8.10.0
     github.com/hashicorp/terraform v1.6.2
     go.uber.org/zap v1.24.0
