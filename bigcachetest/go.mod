@@ -12,7 +12,7 @@ require (
     google.golang.org/grpc v1.60.0
     github.com/elastic/go-elasticsearch/v8 v8.10.0
     github.com/hashicorp/terraform v1.6.2
-    github.com/uber-go/zap v1.24.0
+    go.uber.org/zap v1.24.0
     github.com/prometheus/client_golang v1.16.0
     github.com/gin-gonic/gin v1.9.0
     github.com/go-redis/redis/v8 v8.11.5

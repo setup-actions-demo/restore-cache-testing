@@ -13,7 +13,7 @@ import (
     _ "github.com/Shopify/sarama"
     _ "github.com/elastic/go-elasticsearch/v8"
     _ "github.com/hashicorp/terraform/helper/schema"
-    _ "github.com/uber-go/zap"
+    _ "go.uber.org/zap"
     _ "github.com/prometheus/client_golang/prometheus"
     _ "github.com/gin-gonic/gin"
     _ "github.com/go-redis/redis/v8"
