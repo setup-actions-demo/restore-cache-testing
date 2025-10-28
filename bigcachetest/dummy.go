@@ -23,7 +23,7 @@ import (
     _ "go.mongodb.org/mongo-driver/mongo"
     _ "github.com/google/uuid"
     _ "github.com/minio/minio-go/v7"
-    _ "github.com/docker/docker/client"
+    _ "github.com/moby/moby/client"
     _ "k8s.io/client-go/kubernetes"
     _ "github.com/coreos/etcd/clientv3"
     _ "github.com/apache/thrift/lib/go/thrift"
