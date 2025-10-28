@@ -22,5 +22,8 @@ import (
     _ "github.com/google/uuid"
     _ "github.com/minio/minio-go/v7"
     _ "k8s.io/client-go/kubernetes"
+    _ "github.com/apache/thrift/lib/go/thrift"
+    _ "github.com/apache/arrow/go/arrow"
+    _ "github.com/nats-io/nats.go"
 )
 func main() {}

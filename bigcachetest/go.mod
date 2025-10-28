@@ -22,5 +22,8 @@ require (
     github.com/google/uuid v1.6.0
     github.com/minio/minio-go/v7 v7.0.28
     k8s.io/client-go v0.29.0
+    github.com/apache/thrift v0.19.0
+    github.com/apache/arrow/go/v13 v13.0.0
+    github.com/nats-io/nats.go v1.22.1
 )
 
