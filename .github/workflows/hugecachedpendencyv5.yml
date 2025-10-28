@@ -1,4 +1,4 @@
-name: Huge Go Module Cache Test with setup-go (Preserve Root Files, Go 1.24) - v5
+name: Huge Go Module Cache Test with setup-go (Preserve Root Files, Go 1.24)
 
 on:
   workflow_dispatch:
@@ -11,14 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Setup Go with cache
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.24'
-          cache: true
-          cache-dependency-path: bigcachetest/go.sum
-
-      - name: Create large go.mod & go.sum in test directory
+      - name: Create large go.mod in test directory
         working-directory: bigcachetest
         run: |
           cat <<EOF > go.mod
@@ -49,9 +42,9 @@ jobs:
               go.mongodb.org/mongo-driver v1.13.1
               github.com/google/uuid v1.6.0
               github.com/minio/minio-go/v7 v7.0.28
-              github.com/docker/docker/client v1.13.0
+              github.com/docker/docker/client v23.0.2
               github.com/kubernetes/client-go v0.29.0
-              github.com/coreos/etcd/clientv3 v1.5.10
+              github.com/coreos/etcd/clientv3 v3.5.10
               github.com/apache/thrift v0.19.0
               github.com/apache/arrow/go/v13 v13.0.0
               github.com/nats-io/nats.go v1.22.1
@@ -60,7 +53,59 @@ jobs:
               github.com/gocql/gocql v1.5.0
           )
           EOF
-          go mod tidy
+
+      - name: Create dummy Go file to force dependency download
+        working-directory: bigcachetest
+        run: |
+          cat <<EOF > dummy.go
+          package main
+
+          import (
+              _ "github.com/aws/aws-sdk-go-v2/aws"
+              _ "cloud.google.com/go"
+              _ "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
+              _ "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute"
+              _ "github.com/lib/pq"
+              _ "github.com/go-sql-driver/mysql"
+              _ "github.com/golang/protobuf/proto"
+              _ "google.golang.org/grpc"
+              _ "github.com/Shopify/sarama"
+              _ "github.com/elastic/go-elasticsearch/v8"
+              _ "github.com/hashicorp/terraform/helper/schema"
+              _ "github.com/uber-go/zap"
+              _ "github.com/prometheus/client_golang/prometheus"
+              _ "github.com/gin-gonic/gin"
+              _ "github.com/go-redis/redis/v8"
+              _ "github.com/gorilla/websocket"
+              _ "github.com/sirupsen/logrus"
+              _ "github.com/spf13/cobra"
+              _ "github.com/spf13/viper"
+              _ "go.mongodb.org/mongo-driver/mongo"
+              _ "github.com/google/uuid"
+              _ "github.com/minio/minio-go/v7"
+              _ "github.com/docker/docker/client"
+              _ "github.com/kubernetes/client-go/kubernetes"
+              _ "github.com/coreos/etcd/clientv3"
+              _ "github.com/apache/thrift/lib/go/thrift"
+              _ "github.com/apache/arrow/go/arrow"
+              _ "github.com/nats-io/nats.go"
+              _ "github.com/segmentio/kafka-go"
+              _ "github.com/googleapis/gax-go/v2"
+              _ "github.com/gocql/gocql"
+          )
+          func main() {}
+          EOF
+
+      - name: Tidy go.mod and go.sum
+        working-directory: bigcachetest
+        run: go mod tidy
+
+      - name: Setup Go with cache
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.24'
+          cache: true
+          cache-dependency-path: bigcachetest/go.sum
 
       - name: Download dependencies
         working-directory: bigcachetest
@@ -74,14 +119,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Setup Go with cache
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.24'
-          cache: true
-          cache-dependency-path: bigcachetest/go.sum
-
-      - name: Create large go.mod & go.sum in test directory
+      - name: Create large go.mod in test directory
         working-directory: bigcachetest
         run: |
           cat <<EOF > go.mod
@@ -112,9 +150,9 @@ jobs:
               go.mongodb.org/mongo-driver v1.13.1
               github.com/google/uuid v1.6.0
               github.com/minio/minio-go/v7 v7.0.28
-              github.com/docker/docker/client v1.13.0
+              github.com/docker/docker/client v23.0.2
               github.com/kubernetes/client-go v0.29.0
-              github.com/coreos/etcd/clientv3 v1.5.10
+              github.com/coreos/etcd/clientv3 v3.5.10
               github.com/apache/thrift v0.19.0
               github.com/apache/arrow/go/v13 v13.0.0
               github.com/nats-io/nats.go v1.22.1
@@ -123,7 +161,59 @@ jobs:
               github.com/gocql/gocql v1.5.0
           )
           EOF
-          go mod tidy
+
+      - name: Create dummy Go file to force dependency download
+        working-directory: bigcachetest
+        run: |
+          cat <<EOF > dummy.go
+          package main
+
+          import (
+              _ "github.com/aws/aws-sdk-go-v2/aws"
+              _ "cloud.google.com/go"
+              _ "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
+              _ "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute"
+              _ "github.com/lib/pq"
+              _ "github.com/go-sql-driver/mysql"
+              _ "github.com/golang/protobuf/proto"
+              _ "google.golang.org/grpc"
+              _ "github.com/Shopify/sarama"
+              _ "github.com/elastic/go-elasticsearch/v8"
+              _ "github.com/hashicorp/terraform/helper/schema"
+              _ "github.com/uber-go/zap"
+              _ "github.com/prometheus/client_golang/prometheus"
+              _ "github.com/gin-gonic/gin"
+              _ "github.com/go-redis/redis/v8"
+              _ "github.com/gorilla/websocket"
+              _ "github.com/sirupsen/logrus"
+              _ "github.com/spf13/cobra"
+              _ "github.com/spf13/viper"
+              _ "go.mongodb.org/mongo-driver/mongo"
+              _ "github.com/google/uuid"
+              _ "github.com/minio/minio-go/v7"
+              _ "github.com/docker/docker/client"
+              _ "github.com/kubernetes/client-go/kubernetes"
+              _ "github.com/coreos/etcd/clientv3"
+              _ "github.com/apache/thrift/lib/go/thrift"
+              _ "github.com/apache/arrow/go/arrow"
+              _ "github.com/nats-io/nats.go"
+              _ "github.com/segmentio/kafka-go"
+              _ "github.com/googleapis/gax-go/v2"
+              _ "github.com/gocql/gocql"
+          )
+          func main() {}
+          EOF
+
+      - name: Tidy go.mod and go.sum
+        working-directory: bigcachetest
+        run: go mod tidy
+
+      - name: Setup Go with cache
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.24'
+          cache: true
+          cache-dependency-path: bigcachetest/go.sum
 
       - name: Download dependencies
         working-directory: bigcachetest
@@ -137,14 +227,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Setup Go with cache
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.24'
-          cache: true
-          cache-dependency-path: bigcachetest/go.sum
-
-      - name: Create large go.mod & go.sum in test directory
+      - name: Create large go.mod in test directory
         working-directory: bigcachetest
         run: |
           $goMod = @"
@@ -175,9 +258,9 @@ jobs:
               go.mongodb.org/mongo-driver v1.13.1
               github.com/google/uuid v1.6.0
               github.com/minio/minio-go/v7 v7.0.28
-              github.com/docker/docker/client v1.13.0
+              github.com/docker/docker/client v23.0.2
               github.com/kubernetes/client-go v0.29.0
-              github.com/coreos/etcd/clientv3 v1.5.10
+              github.com/coreos/etcd/clientv3 v3.5.10
               github.com/apache/thrift v0.19.0
               github.com/apache/arrow/go/v13 v13.0.0
               github.com/nats-io/nats.go v1.22.1
@@ -186,8 +269,61 @@ jobs:
               github.com/gocql/gocql v1.5.0
           )
           "@
-          Set-Content -Path go.mod -Value $goMod
-          go mod tidy
+                    Set-Content -Path go.mod -Value $goMod
+
+      - name: Create dummy Go file to force dependency download
+        working-directory: bigcachetest
+        run: |
+          $dummyGo = @"
+          package main
+
+          import (
+              _ \"github.com/aws/aws-sdk-go-v2/aws\"
+              _ \"cloud.google.com/go\"
+              _ \"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob\"
+              _ \"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute\"
+              _ \"github.com/lib/pq\"
+              _ \"github.com/go-sql-driver/mysql\"
+              _ \"github.com/golang/protobuf/proto\"
+              _ \"google.golang.org/grpc\"
+              _ \"github.com/Shopify/sarama\"
+              _ \"github.com/elastic/go-elasticsearch/v8\"
+              _ \"github.com/hashicorp/terraform/helper/schema\"
+              _ \"github.com/uber-go/zap\"
+              _ \"github.com/prometheus/client_golang/prometheus\"
+              _ \"github.com/gin-gonic/gin\"
+              _ \"github.com/go-redis/redis/v8\"
+              _ \"github.com/gorilla/websocket\"
+              _ \"github.com/sirupsen/logrus\"
+              _ \"github.com/spf13/cobra\"
+              _ \"github.com/spf13/viper\"
+              _ \"go.mongodb.org/mongo-driver/mongo\"
+              _ \"github.com/google/uuid\"
+              _ \"github.com/minio/minio-go/v7\"
+              _ \"github.com/docker/docker/client\"
+              _ \"github.com/kubernetes/client-go/kubernetes\"
+              _ \"github.com/coreos/etcd/clientv3\"
+              _ \"github.com/apache/thrift/lib/go/thrift\"
+              _ \"github.com/apache/arrow/go/arrow\"
+              _ \"github.com/nats-io/nats.go\"
+              _ \"github.com/segmentio/kafka-go\"
+              _ \"github.com/googleapis/gax-go/v2\"
+              _ \"github.com/gocql/gocql\"
+          )
+          func main() {}
+          "@
+                    Set-Content -Path dummy.go -Value $dummyGo
+
+      - name: Tidy go.mod and go.sum
+        working-directory: bigcachetest
+        run: go mod tidy
+
+      - name: Setup Go with cache
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.24'
+          cache: true
+          cache-dependency-path: bigcachetest/go.sum
 
       - name: Download dependencies
         working-directory: bigcachetest
@@ -195,5 +331,3 @@ jobs:
 
       - name: Check Go module cache size
         run: du -sh $env:USERPROFILE\go\pkg\mod
-
-         
