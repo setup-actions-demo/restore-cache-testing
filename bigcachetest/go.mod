@@ -6,7 +6,6 @@ module example.com/bigcachetest
               github.com/aws/aws-sdk-go-v2 v1.29.0
               cloud.google.com/go v0.110.0
               github.com/Azure/azure-sdk-for-go/sdk/storage/azblob v1.1.0
-              github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute v1.2.0
               github.com/lib/pq v1.10.9
               github.com/go-sql-driver/mysql v1.7.0
               github.com/golang/protobuf v1.5.3
