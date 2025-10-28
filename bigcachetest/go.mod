@@ -30,5 +30,5 @@ require (
     github.com/segmentio/kafka-go v0.4.30
     github.com/googleapis/gax-go/v2 v2.7.0
     github.com/gocql/gocql v1.5.0
-    github.com/Shopify/sarama v1.46.3
+    github.com/IBM/sarama v1.46.3
 )

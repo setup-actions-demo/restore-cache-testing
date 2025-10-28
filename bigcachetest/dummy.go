@@ -10,7 +10,7 @@ import (
     _ "github.com/go-sql-driver/mysql"
     _ "github.com/golang/protobuf/proto"
     _ "google.golang.org/grpc"
-    _ "github.com/Shopify/sarama"
+    _ "github.com/IBM/sarama"
     _ "github.com/elastic/go-elasticsearch/v8"
     _ "github.com/hashicorp/terraform/helper/schema"
     _ "go.uber.org/zap"
