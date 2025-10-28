@@ -1,4 +1,4 @@
-name: Huge Go Module Cache Test with setup-go (Preserve Root Files, Go 1.24)
+name: Huge Go Module Cache Test with setup-go (Preserve Root Files, Go 1.24) - v5
 
 on:
   workflow_dispatch:
@@ -55,6 +55,7 @@ jobs:
               github.com/googleapis/gax-go/v2 v2.7.0
               github.com/gocql/gocql v1.5.0
           )
+            replace github.com/Shopify/sarama => github.com/Shopify/sarama v1.46.3
           EOF
 
       - name: Create dummy Go file to force dependency download
@@ -159,6 +160,8 @@ jobs:
               github.com/googleapis/gax-go/v2 v2.7.0
               github.com/gocql/gocql v1.5.0
           )
+            replace github.com/Shopify/sarama => github.com/Shopify/sarama v1.46.3
+
           EOF
 
       - name: Create dummy Go file to force dependency download
@@ -263,6 +266,8 @@ jobs:
               github.com/googleapis/gax-go/v2 v2.7.0
               github.com/gocql/gocql v1.5.0
           )
+          replace github.com/Shopify/sarama => github.com/Shopify/sarama v1.46.3
+
           "@
           Set-Content -Path go.mod -Value $goMod
 
