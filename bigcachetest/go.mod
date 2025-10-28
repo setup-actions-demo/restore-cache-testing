@@ -18,5 +18,9 @@ require (
     github.com/sirupsen/logrus v1.9.3
     github.com/spf13/cobra v1.8.0
     github.com/spf13/viper v1.18.2
+    go.mongodb.org/mongo-driver v1.13.1
+    github.com/google/uuid v1.6.0
+    github.com/minio/minio-go/v7 v7.0.28
+    k8s.io/client-go v0.29.0
 )
 

@@ -18,5 +18,9 @@ import (
     _ "github.com/sirupsen/logrus"
     _ "github.com/spf13/cobra"
     _ "github.com/spf13/viper"
+    _ "go.mongodb.org/mongo-driver/mongo"
+    _ "github.com/google/uuid"
+    _ "github.com/minio/minio-go/v7"
+    _ "k8s.io/client-go/kubernetes"
 )
 func main() {}

@@ -45,6 +45,10 @@ jobs:
                 github.com/sirupsen/logrus v1.9.3
                 github.com/spf13/cobra v1.8.0
                 github.com/spf13/viper v1.18.2
+                go.mongodb.org/mongo-driver v1.13.1
+                github.com/google/uuid v1.6.0
+                github.com/minio/minio-go/v7 v7.0.28
+                k8s.io/client-go v0.29.0
             )
           EOF
 
@@ -71,6 +75,10 @@ jobs:
               _ "github.com/sirupsen/logrus"
               _ "github.com/spf13/cobra"
               _ "github.com/spf13/viper"
+              _ "go.mongodb.org/mongo-driver/mongo"
+              _ "github.com/google/uuid"
+              _ "github.com/minio/minio-go/v7"
+              _ "k8s.io/client-go/kubernetes"
           )
           func main() {}
           EOF
@@ -125,6 +133,10 @@ jobs:
               github.com/sirupsen/logrus v1.9.3
               github.com/spf13/cobra v1.8.0
               github.com/spf13/viper v1.18.2
+              go.mongodb.org/mongo-driver v1.13.1
+              github.com/google/uuid v1.6.0
+              github.com/minio/minio-go/v7 v7.0.28
+              k8s.io/client-go v0.29.0
           )
 
           EOF
@@ -152,6 +164,10 @@ jobs:
               _ "github.com/sirupsen/logrus"
               _ "github.com/spf13/cobra"
               _ "github.com/spf13/viper"
+              _ "go.mongodb.org/mongo-driver/mongo"
+              _ "github.com/google/uuid"
+              _ "github.com/minio/minio-go/v7"
+              _ "k8s.io/client-go/kubernetes"
           )
           func main() {}
           EOF
@@ -206,6 +222,10 @@ jobs:
               github.com/sirupsen/logrus v1.9.3
               github.com/spf13/cobra v1.8.0
               github.com/spf13/viper v1.18.2
+              go.mongodb.org/mongo-driver v1.13.1
+              github.com/google/uuid v1.6.0
+              github.com/minio/minio-go/v7 v7.0.28
+              k8s.io/client-go v0.29.0
           )
 
           "@
@@ -234,6 +254,10 @@ jobs:
                 _ "github.com/sirupsen/logrus"
                 _ "github.com/spf13/cobra"
                 _ "github.com/spf13/viper"
+                _ "go.mongodb.org/mongo-driver/mongo"
+                _ "github.com/google/uuid"
+                _ "github.com/minio/minio-go/v7"
+                _ "k8s.io/client-go/kubernetes"
             )
           func main() {}
           "@
@@ -250,4 +274,3 @@ jobs:
       - name: Check Go module cache size
         run: du -sh $env:USERPROFILE\go\pkg\mod
 
-        
