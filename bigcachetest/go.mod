@@ -31,3 +31,5 @@ require (
     github.com/googleapis/gax-go/v2 v2.7.0
     github.com/gocql/gocql v1.5.0
 )
+
+replace github.com/coreos/bbolt => go.etcd.io/bbolt v1.4.3
