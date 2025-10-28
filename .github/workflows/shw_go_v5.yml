@@ -32,6 +32,9 @@ jobs:
           if (!(Test-Path -Path "C:\Users\Vysakh\AppData\Local\go-build")) {
             mkdir "C:\Users\Vysakh\AppData\Local\go-build"
           }
+           if (!(Test-Path -Path "C:\Users\Vysakh\go\pkg\mod")) {
+            mkdir "C:\Users\Vysakh\go\pkg\mod"
+          }
         shell: powershell
 
       - uses: actions/setup-go@v5
