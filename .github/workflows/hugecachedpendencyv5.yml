@@ -194,7 +194,7 @@ jobs:
               _ "github.com/gocql/gocql"
           )
           func main() {}
-          EOF
+          EOF 
 
       - name: Tidy go.mod and go.sum
         working-directory: bigcachetest
